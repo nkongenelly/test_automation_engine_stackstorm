@@ -38,7 +38,7 @@ tasks:
     action: core.local
     input:
       cmd: sleep <% ctx().long_process1 %>
-      timeout: <% ctx().long_process1 %>
+      timeout: <% int(ctx().long_process1) + 5 %>
     next:
       - when: <% succeeded() %>
         do:
@@ -48,7 +48,7 @@ tasks:
     action: core.local
     input:
       cmd: sleep <% ctx().long_process2 %>
-      timeout: <% ctx().long_process2 %>
+      timeout: <% int(ctx().long_process2) + 5 %>
     next:
       - when: <% succeeded() %>
         do:
